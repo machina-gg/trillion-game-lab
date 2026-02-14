@@ -28,4 +28,3 @@ reports/         ← ダッシュボード・プロジェクト管理
 
 - Worktree 配置: `/Users/akihiroito/personalwork/git/trillion-game-lab-{issue-number}/`
 - Git Flow: develop → feature/* → PR → develop → main
-- `.claude/settings.json` の変更はユーザーのみ

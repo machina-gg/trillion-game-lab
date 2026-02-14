@@ -39,7 +39,6 @@ Phase 5: 判定（PM） → adopt / hold / reject
 ```
 trillion-game-lab/
 ├── CLAUDE.md           ← 社訓・ルール定義
-├── .claude/            ← エージェント設定
 ├── .github/            ← CI・Issue テンプレート
 ├── research/           ← Researcher の成果物
 │   └── {theme-slug}/

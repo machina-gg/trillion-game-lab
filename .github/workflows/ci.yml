@@ -113,7 +113,7 @@ jobs:
               proposals/*/review-notes.md)
                 echo "  $file → Editor"
                 ;;
-              CLAUDE.md|.claude/*|.github/*|reports/*)
+              CLAUDE.md|.github/*|reports/*)
                 HAS_PM_FILES=true
                 echo "  $file → PM"
                 ;;
