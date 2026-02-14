@@ -19,7 +19,8 @@ jobs:
         with:
           globs: |
             research/**/*.md
-            proposals/**/*.md
+            proposals/inbox/**/*.md
+            proposals/adopted/**/*.md
             templates/**/*.md
 
   structure-check:
@@ -53,18 +54,20 @@ jobs:
 
       - name: Validate proposal structure
         run: |
-          # proposals/ 内の各企画ディレクトリに proposal.md があるか
+          # proposals/inbox/ および proposals/adopted/ 内の各企画ディレクトリに proposal.md があるか
           FOUND_DIR=false
-          for dir in proposals/*/; do
-            [ -d "$dir" ] || continue
-            FOUND_DIR=true
-            name=$(basename "$dir")
-            echo "Checking proposals/$name/"
-            if [ ! -f "${dir}proposal.md" ]; then
-              echo "::error::Missing ${dir}proposal.md"
-              exit 1
-            fi
-            echo "  OK"
+          for parent in proposals/inbox proposals/adopted; do
+            for dir in ${parent}/*/; do
+              [ -d "$dir" ] || continue
+              FOUND_DIR=true
+              name=$(basename "$dir")
+              echo "Checking ${parent}/$name/"
+              if [ ! -f "${dir}proposal.md" ]; then
+                echo "::error::Missing ${dir}proposal.md"
+                exit 1
+              fi
+              echo "  OK"
+            done
           done
 
           if [ "$FOUND_DIR" = false ]; then
