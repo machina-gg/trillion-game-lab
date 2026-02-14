@@ -9,7 +9,7 @@ Closes #
 - [ ] リサーチ（research/）
 - [ ] 企画書（proposals/）
 - [ ] レビュー（review-notes）
-- [ ] インフラ（.claude/, .github/, CLAUDE.md）
+- [ ] インフラ（.github/, CLAUDE.md）
 - [ ] その他
 
 ## チェックリスト
