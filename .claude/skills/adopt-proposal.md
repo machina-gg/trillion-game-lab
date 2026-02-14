@@ -1,105 +1,97 @@
 ---
 name: adopt-proposal
-description: 採用された企画書を開発部（trillion-game）にハンドオフするスキル。PM が判定時に使用。
+description: proposals/adopted/ から採用済み企画書を読み取り、開発部に Issue を作成するスキル。
 ---
 
-# 企画採用（Adopt Proposal）
+# 企画書の開発部提案（Adopt Proposal）
 
 ## 概要
 
-PM が企画書を「採用」と判定した場合、開発部（trillion-game リポ）に Issue を作成してハンドオフする。
+ダッシュボードで「adopted」と判定された企画書を、開発部（machina-gg/trillion-game）に Issue として送る。
+
+## 前提条件
+
+- `sort-proposals` スキルで振り分け済みであること
+- 対象の企画書が `proposals/adopted/{slug}/proposal.md` に存在すること
 
 ## 手順
 
-### Step 1: 企画書の最終確認
-
-- Editor の APPROVE を確認する（`gh pr reviews` で確認）
-- proposal.md の内容を最終レビューする
-- review-notes.md の改善点が全て対応済みか確認する
+### Step 1: 採用済み提案の確認
 
 ```bash
-# PR のレビューステータスを確認
-gh pr view {PR番号} --repo machina-gg/trillion-game-lab --json reviews
+ls proposals/adopted/
 ```
 
-### Step 2: 開発部に Issue 作成
+各 `proposals/adopted/{slug}/` をチェックし、proposal.md の Status が `approved`（開発部に送付済み）でないものを対象にする。
+
+### Step 2: 企画書の読み込み
+
+対象の `proposals/adopted/{slug}/proposal.md` を読み込み、以下を抽出:
+
+- エレベーターピッチ
+- コンセプト
+- 差別化ポイント
+- MVP 機能一覧
+- 市場規模（TAM/SAM/SOM/CAGR）
+- ビジネスモデル
+- 技術概要
+
+### Step 3: 開発部に Issue 作成
 
 ```bash
 gh issue create --repo machina-gg/trillion-game \
   --title "feat: {プロダクト名}" \
   --label "proposal,from-trillion-game-lab" \
   --body "$(cat <<'EOF'
-## 企画書サマリー
+## 提案概要
 {エレベーターピッチ}
 
 ## コンセプト
-{コンセプト概要: 誰の・何の課題を・どう解決するか}
+{コンセプト概要}
 
-## 差別化ポイント
-{競合との違い。なぜ既存プロダクトではダメか}
+## 差別化
+{競合との差}
 
-## 機能一覧（MVP）
-- [ ] {機能 1}: {説明}
-- [ ] {機能 2}: {説明}
-- [ ] {機能 3}: {説明}
-- [ ] {機能 4}: {説明}
-- [ ] {機能 5}: {説明}
+## MVP 機能
+- [ ] {機能 1}
+- [ ] {機能 2}
+- [ ] {機能 3}
 
 ## 市場規模
-| 指標 | 値 |
-|------|-----|
-| TAM | ${N}B |
-| SAM | ${N}B |
-| SOM | ${N}M |
-| CAGR | {N}% |
+TAM: ${N}B
+SAM: ${N}B
+SOM: ${N}M
+CAGR: {N}%
 
 ## ビジネスモデル
-{収益化の方法}
+{収益化方法}
 
 ## 技術概要
 {推奨技術スタック}
 
 ## 企画書リンク
-- 企画書: https://github.com/machina-gg/trillion-game-lab/blob/develop/proposals/{name}/proposal.md
+- 企画書: https://github.com/machina-gg/trillion-game-lab/blob/develop/proposals/adopted/{slug}/proposal.md
 - リサーチ: https://github.com/machina-gg/trillion-game-lab/tree/develop/research/{theme}
-- レビューノート: https://github.com/machina-gg/trillion-game-lab/blob/develop/proposals/{name}/review-notes.md
 
 ## From
-プロダクト企画部（trillion-game-lab）より
+プロダクト企画部（trillion-game-lab）
 EOF
 )"
 ```
 
-### Step 3: 記録
+### Step 4: ステータス更新
 
-1. Issue URL を PR にコメントとして記録する
+proposal.md の Status を `approved` に更新する。
 
-```bash
-gh pr comment {PR番号} --repo machina-gg/trillion-game-lab \
-  --body "開発部に Issue を作成しました: {Issue URL}"
-```
+### Step 5: 完了報告
 
-2. proposals/{name}/proposal.md のステータスを `approved` に更新する
-
-```
-## ステータス
-approved
-```
-
-3. 進捗管理を更新する（emit-event.sh を使用）
+- 開発部に送付した提案: {N} 件
+- Issue URL: {各 Issue の URL}
 
 ## チェックリスト
 
-- [ ] Editor の APPROVE を確認した
-- [ ] proposal.md の全セクションが完成している
-- [ ] review-notes.md の改善点が全て対応済み
-- [ ] `gh issue create --repo machina-gg/trillion-game` で Issue を作成した
-- [ ] Issue URL を PR にコメントした
-- [ ] proposal.md のステータスを `approved` に更新した
-- [ ] 進捗管理を更新した
-
-## 注意事項
-
-- **企画書全文をコピーしない**: Issue にはサマリーを記載し、詳細はリンクで参照する
-- **開発部 PM が Issue を受け取り、タスク分解する**: 企画部は実装に介入しない
-- **リサーチデータへのアクセス**: 開発部が必要に応じて企画部のリサーチを参照できるよう、リンクを必ず含める
+- [ ] proposals/adopted/ に対象の提案がある
+- [ ] proposal.md の全セクションが揃っている
+- [ ] 開発部に Issue を作成した
+- [ ] Issue に `proposal` + `from-trillion-game-lab` ラベルを付けた
+- [ ] proposal.md の Status を `approved` に更新した
