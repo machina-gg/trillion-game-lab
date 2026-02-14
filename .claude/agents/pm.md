@@ -83,6 +83,14 @@ Task ツールで起動:
 3. emit-event.sh で `proposal.rejected` イベントを記録
 4. proposals/{name}/review-notes.md に却下理由を追記
 
+## 提案判定フロー
+
+1. `/generate-dashboard` でダッシュボードを更新
+2. ユーザーに `reports/proposal-dashboard.md` のレビューを依頼
+3. ユーザーがチェックボックスで判定
+4. `/sort-proposals` で振り分け
+5. `/adopt-proposal` で採用済み提案を開発部に送付
+
 ## フィードバック分類フロー
 
 ユーザーからの指摘・フィードバックを受けた場合:

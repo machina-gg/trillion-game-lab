@@ -73,11 +73,15 @@ trillion-game-lab/
 │       ├── trend-report.md
 │       ├── competitor-analysis.md
 │       └── sources.md
-├── proposals/               ← Planner の成果物
-│   └── {proposal-slug}/
-│       ├── proposal.md      ← 企画書本体
-│       ├── research-ref.md  ← リサーチ参照情報
-│       └── review-notes.md  ← Editor のレビューノート
+├── proposals/               ← Planner の成果物（ライフサイクル管理）
+│   ├── inbox/               ← 新規・レビュー中の提案
+│   │   └── {proposal-slug}/
+│   │       ├── proposal.md      ← 企画書本体
+│   │       ├── research-ref.md  ← リサーチ参照情報
+│   │       └── review-notes.md  ← Editor のレビューノート
+│   ├── adopted/             ← 採用済み（開発部へハンドオフ対象）
+│   ├── rejected/            ← 不採用
+│   └── on-hold/             ← 保留（追加リサーチ待ち）
 ├── templates/               ← テンプレート
 │   ├── research/            ← リサーチテンプレート
 │   └── proposal/            ← 企画書テンプレート
@@ -274,8 +278,13 @@ Phase 4: レビュー（Editor）
   └→ PM が Editor を起動して PR レビュー
   └→ APPROVE → Phase 5 / REQUEST_CHANGES → Planner が修正
 
-Phase 5: 判定（PM）
-  └→ adopt: /adopt-proposal で開発部に Issue 作成
+Phase 5: 判定（PM + ユーザー）
+  └→ /generate-dashboard でダッシュボード更新
+  └→ ユーザーがチェックボックスで判定（adopted / rejected / on-hold）
+  └→ /sort-proposals で inbox/ から各ディレクトリに振り分け
+
+Phase 6: ハンドオフ（PM）
+  └→ /adopt-proposal で adopted/ の提案を開発部に Issue 作成
   └→ hold: 追加リサーチを指示 → Phase 2 に戻る
   └→ reject: 理由を記録、Issue を close
 ```
@@ -451,6 +460,8 @@ CLAUDE.md のトークンコストを抑えるため、詳細手順は `.claude/
 | `.claude/skills/write-proposal.md` | 企画書作成手順 | 企画書作成時 |
 | `.claude/skills/review-proposal.md` | 企画書レビュー手順 | レビュー時 |
 | `.claude/skills/adopt-proposal.md` | 企画採用→開発部ハンドオフ | 採用判定時 |
+| `.claude/skills/generate-dashboard.md` | 提案ダッシュボード生成・更新 | 提案判定フロー開始時 |
+| `.claude/skills/sort-proposals.md` | ダッシュボード判定に基づく提案振り分け | ユーザー判定後 |
 | `.claude/skills/create-issue.md` | GitHub Issue 作成手順 | 要件をスコープ定義する時 |
 | `.claude/skills/inter-agent-protocol.md` | エージェント間直接通信プロトコル | エージェント間で技術的なやり取りをする時 |
 | `.claude/skills/retrospective.md` | 振り返り（Good/Bad/Improvements → Issue 自動作成） | サイクル完了時 |

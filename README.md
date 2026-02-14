@@ -47,11 +47,15 @@ trillion-game-lab/
 │       ├── trend-report.md
 │       ├── competitor-analysis.md
 │       └── sources.md
-├── proposals/          ← Planner の成果物
-│   └── {proposal-slug}/
-│       ├── proposal.md
-│       ├── research-ref.md
-│       └── review-notes.md
+├── proposals/          ← Planner の成果物（ライフサイクル管理）
+│   ├── inbox/          ← 新規・レビュー中の提案
+│   │   └── {proposal-slug}/
+│   │       ├── proposal.md
+│   │       ├── research-ref.md
+│   │       └── review-notes.md
+│   ├── adopted/        ← 採用済み
+│   ├── rejected/       ← 不採用
+│   └── on-hold/        ← 保留
 ├── templates/          ← テンプレート
 ├── reports/            ← プロジェクト管理
 │   └── projects.json
