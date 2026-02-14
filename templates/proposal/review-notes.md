@@ -1,6 +1,7 @@
 # {プロダクト名} — レビューノート
 
 ## レビュー情報
+
 - レビュアー: Editor
 - レビュー日: {YYYY-MM-DD}
 - 対象: proposals/{name}/proposal.md
@@ -17,6 +18,7 @@
 | 市場規模の妥当性 | ✅/⚠️/❌ | |
 
 ## 総合判定
+
 APPROVE / REQUEST_CHANGES
 
 ## 改善提案
