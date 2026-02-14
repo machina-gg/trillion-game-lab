@@ -21,8 +21,8 @@
 インディーゲーム開発者が抱える3つの主要課題:
 
 1. **予算制約**: ソロ開発者の典型的な予算は$10,000-$50,000で、アセット制作に割ける予算は限定的
-2. **ツール乱立**: Leonardo AI、Scenario、Midjourney等の個別ツールを組み合わせる必要があり、学習コストと管理コストが高い
-3. **ライセンス不安**: 生成アセットの商用利用ライセンスが曖昧なケースがあり、法的リスクを抱える
+1. **ツール乱立**: Leonardo AI、Scenario、Midjourney等の個別ツールを組み合わせる必要があり、学習コストと管理コストが高い
+1. **ライセンス不安**: 生成アセットの商用利用ライセンスが曖昧なケースがあり、法的リスクを抱える
 
 ## ターゲットユーザー
 
@@ -70,11 +70,11 @@
    - **Pro**: $49/月 — 月間2,000アセット生成、全機能利用可、優先サポート
    - **Studio**: $149/月 — 無制限生成、チーム機能（5ユーザーまで）、カスタムモデルトレーニング
 
-2. **アドオン収益**
+1. **アドオン収益**
    - カスタムLoRAモデルトレーニング: $29/モデル
    - 音声アセットパック: $9.99/パック
 
-3. **フリーミアム戦略**
+1. **フリーミアム戦略**
    - 無料プラン: 月間50アセット生成、透かし付き、コミュニティサポートのみ
 
 ### 収益予測（12ヶ月後）
@@ -97,26 +97,31 @@
 ## 技術スタック（提案）
 
 ### フロントエンド
+
 - Next.js 14（App Router）
 - TypeScript（strict mode）
 - Tailwind CSS
 - Shadcn/ui（UIコンポーネント）
 
 ### バックエンド
+
 - Next.js API Routes
 - Vercel Edge Functions（画像最適化処理）
 - Supabase（認証・データベース・ストレージ）
 
 ### AI/ML
+
 - Replicate API（Stable Diffusion XL + LoRA）— $0.0055/秒（月間2,000アセット生成で推定$50-100）
 - OpenAI GPT-4 API（プロンプト最適化）— 月間推定$20
 
 ### インフラ
+
 - Vercel（ホスティング）— $20/月（Pro Plan）
 - Supabase（データベース + ストレージ）— $25/月（Pro Plan、50GBストレージ）
 - Cloudflare R2（アセットストレージ）— $15/月（1TB、$0.015/GB）
 
 ### 月額コスト合計: 約$130-180
+
 - Vercel: $20
 - Supabase: $25
 - Cloudflare R2: $15
@@ -158,11 +163,13 @@
 ### 調査方法
 
 **WebSearchクエリ:**
+
 - "game industry trends 2026 AI UGC cloud gaming market"
 - "AI game asset generation tools competitors pricing Scenario Leonardo"
 - "indie game developer tools budget constraints solo developer 2026"
 
 **WebFetch確認サイト:**
+
 - Leonardo AI公式サイト（価格・機能確認）
 - Scenario公式サイト（価格・機能確認）
 - Replicate API公式ドキュメント（価格・利用規約確認）
