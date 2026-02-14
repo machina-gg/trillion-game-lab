@@ -1,0 +1,48 @@
+name: プロダクト企画書
+description: 新しいプロダクトの企画書を提出する
+labels: ["proposal"]
+body:
+  - type: input
+    id: product-name
+    attributes:
+      label: プロダクト名
+      placeholder: "例: MoneyFlow AI"
+    validations:
+      required: true
+
+  - type: textarea
+    id: elevator-pitch
+    attributes:
+      label: エレベーターピッチ
+      description: 1-2文でプロダクトを説明
+    validations:
+      required: true
+
+  - type: textarea
+    id: research-ref
+    attributes:
+      label: リサーチ参照
+      description: 元となるリサーチのパス
+      placeholder: "research/{theme-slug}/"
+    validations:
+      required: true
+
+  - type: textarea
+    id: differentiation
+    attributes:
+      label: 差別化ポイント
+      description: 既存プロダクトとの違い
+    validations:
+      required: true
+
+  - type: textarea
+    id: mvp-features
+    attributes:
+      label: MVP 機能
+      description: 最小実行可能プロダクトの機能
+      value: |
+        - [ ] 機能1
+        - [ ] 機能2
+        - [ ] 機能3
+    validations:
+      required: true
