@@ -22,33 +22,29 @@
 
 ```
 PM（常駐・薄いルーター。起動・承認・仲裁のみ）
-├── Researcher（市場調査・トレンド分析）
-├── Planner（企画書作成）
+├── Planner（トレンド調査 + 企画書作成）
 └── Editor（品質レビュー・校正）
 ```
 
 | 役割 | 責任範囲 | エージェント定義 |
 |------|---------|----------------|
 | PM（Lead） | テーマ選定、Issue 作成、エージェント起動、採用/保留/却下の判定、開発部へのハンドオフ | — （常駐） |
-| Researcher | WebSearch/WebFetch でデータ収集、市場分析・トレンド・競合分析の文書化 | `.claude/agents/researcher.md` |
-| Planner | リサーチを元に企画書（コンセプト・差別化・機能一覧）を作成 | `.claude/agents/planner.md` |
-| Editor | 企画書の論理性・完全性・データ裏付けをレビュー | `.claude/agents/editor.md` |
+| Planner | WebSearch/WebFetch でトレンド調査・市場分析を実施し、企画書（コンセプト・差別化・機能一覧）を作成 | `.claude/agents/planner.md` |
+| Editor | 企画書の論理性・完全性・データ裏付けを WebSearch で検証してレビュー | `.claude/agents/editor.md` |
 
-PMは常駐エージェントとして動作し、必要に応じてエージェントを直接起動する。
+PM は常駐エージェントとして動作し、必要に応じてエージェントを直接起動する。
 
 ### PM の役割（薄いルーター）
 
-PMは**起動・承認・仲裁に専念する**。やること:
+PM は**起動・承認・仲裁に専念する**。やること:
 1. テーマを選定し Issue を作成
-2. Researcher を起動してデータ収集を指示
-3. Planner を起動して企画書作成を指示
-4. Editor を起動してレビューを指示
-5. 採用/保留/却下を判定
-6. 採用の場合、開発部（trillion-game）にハンドオフ
+2. Planner を起動してデータ収集・企画書作成を指示
+3. Editor を起動してレビューを指示
+4. 採用/保留/却下を判定
+5. 採用の場合、開発部（trillion-game）にハンドオフ
 
-PMがやらないこと（エージェントが自律実行）:
-- `research/` の編集（→ Researcher に委譲）
-- `proposals/` の企画書・参照の編集（→ Planner に委譲）
+PM がやらないこと（エージェントが自律実行）:
+- `proposals/` の企画書編集（→ Planner に委譲）
 - `proposals/` のレビューノート編集（→ Editor に委譲）
 - PR の作成（エージェントが自分で作成）
 - Worktree の作成・管理（エージェントがセルフサービスで実行）
@@ -60,30 +56,22 @@ trillion-game-lab/
 ├── CLAUDE.md                ← このファイル（社訓）
 ├── .claude/
 │   ├── settings.json        ← Agent Teams 設定
-│   ├── agents/              ← pm.md, researcher.md, planner.md, editor.md
+│   ├── agents/              ← pm.md, planner.md, editor.md
 │   ├── skills/              ← スキル定義
 │   ├── checklists/          ← オンデマンドチェックリスト
 │   └── docs/                ← リファレンスドキュメント
 ├── .github/
 │   ├── workflows/ci.yml     ← CI ワークフロー
 │   └── ISSUE_TEMPLATE/      ← Issue テンプレート
-├── research/                ← Researcher の成果物
-│   └── {theme-slug}/
-│       ├── market-analysis.md
-│       ├── trend-report.md
-│       ├── competitor-analysis.md
-│       └── sources.md
 ├── proposals/               ← Planner の成果物（ライフサイクル管理）
 │   ├── inbox/               ← 新規・レビュー中の提案
 │   │   └── {proposal-slug}/
-│   │       ├── proposal.md      ← 企画書本体
-│   │       ├── research-ref.md  ← リサーチ参照情報
+│   │       ├── proposal.md      ← 企画書本体（市場調査データ込み）
 │   │       └── review-notes.md  ← Editor のレビューノート
 │   ├── adopted/             ← 採用済み（開発部へハンドオフ対象）
 │   ├── rejected/            ← 不採用
-│   └── on-hold/             ← 保留（追加リサーチ待ち）
+│   └── on-hold/             ← 保留（追加調査待ち）
 ├── templates/               ← テンプレート
-│   ├── research/            ← リサーチテンプレート
 │   └── proposal/            ← 企画書テンプレート
 ├── reports/
 │   └── projects.json        ← プロジェクトインデックス
@@ -150,8 +138,7 @@ PRの変更内容に応じて、適切なレビュアーを割り当てる：
 
 | 変更内容 | レビュー担当 | 観点 |
 |---------|------------|------|
-| リサーチ内容（market-analysis, trend-report 等） | **Editor** | データの正確性、ソースの信頼性、論理性 |
-| 企画書（proposal.md, research-ref.md） | **Editor** | 論理性、完全性、実現可能性、データ裏付け |
+| 企画書（proposal.md） | **Editor** | 論理性、完全性、実現可能性、データ裏付け、ソースの信頼性 |
 | 運営変更（CLAUDE.md、ルール、スキル、ワークフロー） | **PM** | ビジネス要件との整合性、運用妥当性 |
 | 複数領域にまたがる変更 | **該当する全ロール** | それぞれの観点でレビュー |
 
@@ -171,9 +158,7 @@ chore: ビルド・CI・設定の変更
 
 | パス | 担当 | 他ロールの編集 |
 |------|------|--------------|
-| `research/{theme}/` | **Researcher** | 禁止 |
 | `proposals/{name}/proposal.md` | **Planner** | 禁止 |
-| `proposals/{name}/research-ref.md` | **Planner** | 禁止 |
 | `proposals/{name}/review-notes.md` | **Editor** | 禁止 |
 | `templates/` | **PM** | 禁止 |
 | `reports/projects.json`, `CLAUDE.md`, `.claude/`, `.github/` | **PM** | 禁止 |
@@ -187,7 +172,6 @@ chore: ビルド・CI・設定の変更
 3. 自分の担当内 → 編集を進める
 
 **PM 専用の追加ルール:**
-- `research/` を編集したくなったら → Researcher エージェントを起動して委譲
 - `proposals/` の企画書を編集したくなったら → Planner エージェントを起動して委譲
 - `proposals/` のレビューノートを編集したくなったら → Editor エージェントを起動して委譲
 - **「自分でやった方が早い」は禁止。委譲して品質を上げるのが PM の仕事**
@@ -220,25 +204,17 @@ chore: ビルド・CI・設定の変更
 
 ### 新規テーマの立ち上げ
 
-PMがテーマを選定し Issue を作成する。リサーチテンプレートを使用：
-```bash
-cp -r templates/research/ research/{theme-slug}/
-```
+PM がテーマを選定し Issue を作成する。
 
-企画書テンプレートを使用：
-```bash
-cp -r templates/proposal/ proposals/{proposal-slug}/
-```
-
-同時に `reports/projects.json` にプロジェクトを登録する：
+同時に `reports/projects.json` にプロジェクトを登録する:
 ```json
 {
   "company": "Trillion Game",
   "department": "プロダクト企画部",
   "projects": [
     {
-      "name": "テーマ名",
-      "path": "research/{theme-slug}",
+      "name": "プロダクト名",
+      "path": "proposals/inbox/{proposal-slug}",
       "status": "active",
       "started_at": "ISO 8601",
       "completed_at": null
@@ -253,46 +229,42 @@ PM がタスク起票時にサイズを判定し、フローを選択する:
 
 | サイズ | 基準 | フロー |
 |--------|------|--------|
-| **S** | 1ドキュメント / 明確な調査 | Issue → Branch → 作業 → PR → マージ |
-| **M** | 2-5ドキュメント / テーマリサーチ | Issue → Branch → リサーチ → PR → レビュー → マージ |
-| **L** | フルサイクル（リサーチ→企画→レビュー） | Issue → リサーチ → 企画書 → Editor レビュー → PM 判定 |
+| **S** | 1ドキュメント / 簡易企画 | Issue → Branch → 作業 → PR → マージ |
+| **M** | 2-5ドキュメント / 標準企画 | Issue → Branch → 企画書作成 → PR → レビュー → マージ |
+| **L** | フルサイクル（調査→企画→レビュー） | Issue → 企画書作成（調査込み） → Editor レビュー → PM 判定 |
 
-- **S/M**: Editor レビューは任意。Researcher / Planner が直接着手可能
+- **S/M**: Editor レビューは任意。Planner が直接着手可能
 - **L**: Editor によるレビュー + PM による採用判定が必要
 
-### ワークフロー（リサーチ→企画サイクル）
+### ワークフロー（企画サイクル）
 
 ```
 Phase 1: テーマ選定（PM）
-  └→ PM がテーマを決め Issue 作成 → Researcher を起動
+  └→ PM がテーマを決め Issue 作成 → Planner を起動
 
-Phase 2: リサーチ（Researcher）
-  └→ WebSearch/WebFetch でデータ収集
-  └→ research/{theme}/ にドキュメント作成 → PR → マージ
+Phase 2: 企画書作成（Planner）
+  └→ WebSearch/WebFetch でトレンド・市場データを収集
+  └→ proposals/inbox/{name}/ に企画書作成（調査データ込み） → PR
 
-Phase 3: 企画書作成（Planner）
-  └→ PM が Planner を起動（research/ を参照指示）
-  └→ proposals/{name}/ に企画書作成 → PR
-
-Phase 4: レビュー（Editor）
+Phase 3: レビュー（Editor）
   └→ PM が Editor を起動して PR レビュー
-  └→ APPROVE → Phase 5 / REQUEST_CHANGES → Planner が修正
+  └→ データの正確性・ソースの信頼性を含めてレビュー
+  └→ APPROVE → Phase 4 / REQUEST_CHANGES → Planner が修正
 
-Phase 5: 判定（PM + ユーザー）
+Phase 4: 判定（PM + ユーザー）
   └→ /generate-dashboard でダッシュボード更新
   └→ ユーザーがチェックボックスで判定（adopted / rejected / on-hold）
   └→ /sort-proposals で inbox/ から各ディレクトリに振り分け
 
-Phase 6: ハンドオフ（PM）
+Phase 5: ハンドオフ（PM）
   └→ /adopt-proposal で adopted/ の提案を開発部に Issue 作成
-  └→ hold: 追加リサーチを指示 → Phase 2 に戻る
+  └→ hold: 追加調査を指示 → Phase 2 に戻る
   └→ reject: 理由を記録、Issue を close
 ```
 
 ### フェーズゲート
 
-- **L サイズ**: リサーチ完了前に企画書作成を開始しない。PM がリサーチをレビューしてから Planner を動かす
-- **S/M サイズ**: Issue とテーマがあれば Researcher に即委譲可能
+- **全サイズ**: Issue とテーマがあれば Planner に即委譲可能
 - **フェーズ完了時に軽量振り返りを実施**: 各フェーズ終了時に PM が未反映フィードバックを確認し、即座に対応可能なものは反映する
 
 ## 部署間連携（Cross-Department Handoff）
@@ -320,15 +292,13 @@ Issue 本文に以下を埋め込む：
 | ロール | 定義ファイル |
 |--------|------------|
 | PM | `.claude/agents/pm.md` |
-| Researcher | `.claude/agents/researcher.md` |
 | Planner | `.claude/agents/planner.md` |
 | Editor | `.claude/agents/editor.md` |
 
-PMは常駐。必要時にエージェントを直接起動する。
+PM は常駐。必要時にエージェントを直接起動する。
 
 **PM のファイル編集制限:**
-- `research/` → Researcher に委譲（直接編集禁止）
-- `proposals/` の企画書・参照 → Planner に委譲（直接編集禁止）
+- `proposals/` の企画書 → Planner に委譲（直接編集禁止）
 - `proposals/` のレビューノート → Editor に委譲（直接編集禁止）
 - **「自分でやった方が早い」は禁止。タスク分解チェックリストを実行してから作業開始する**
 
@@ -422,8 +392,7 @@ PMは常駐。必要時にエージェントを直接起動する。
 
 | 情報 | 管理場所 | 備考 |
 |------|---------|------|
-| 市場調査 | `research/{theme}/` | 他からはリンクで参照 |
-| 企画書 | `proposals/{name}/proposal.md` | リサーチは research-ref.md でリンク |
+| 企画書 | `proposals/{name}/proposal.md` | 市場調査データも含む |
 | レビュー結果 | `proposals/{name}/review-notes.md` | Editor のみが編集 |
 | 進捗状況 | GitHub Issues / PR | Issue と PR で追跡 |
 | 全社ルール | `CLAUDE.md` | エージェント全員が参照 |
@@ -446,7 +415,6 @@ CLAUDE.md のトークンコストを抑えるため、詳細手順は `.claude/
 | チェックリスト | 内容 | 読み込みタイミング |
 |--------------|------|------------------|
 | `.claude/checklists/task-decomposition.md` | タスク分解・ロール割当 | **タスク開始前（必須）** |
-| `.claude/checklists/research-quality.md` | リサーチ品質チェック | リサーチ完了時 |
 | `.claude/checklists/proposal-quality.md` | 企画書品質チェック | 企画書完了時 |
 | `.claude/checklists/pr-creation.md` | PR 作成前の確認項目 | PR 作成時 |
 | `.claude/checklists/new-agent-startup.md` | エージェント起動前の確認 | エージェント起動時 |
@@ -456,9 +424,8 @@ CLAUDE.md のトークンコストを抑えるため、詳細手順は `.claude/
 | スキル | 内容 | 使用タイミング |
 |--------|------|--------------|
 | `.claude/skills/delegate-task.md` | タスク委譲（ダッシュボード自動同期付き） | エージェントにタスクを委譲する時 |
-| `.claude/skills/research-theme.md` | テーマリサーチ手順 | リサーチ開始時 |
-| `.claude/skills/write-proposal.md` | 企画書作成手順 | 企画書作成時 |
-| `.claude/skills/review-proposal.md` | 企画書レビュー手順 | レビュー時 |
+| `.claude/skills/write-proposal.md` | 企画書作成手順（WebSearch でデータ収集） | 企画書作成時 |
+| `.claude/skills/review-proposal.md` | 企画書レビュー手順（WebSearch で検証） | レビュー時 |
 | `.claude/skills/adopt-proposal.md` | 企画採用→開発部ハンドオフ | 採用判定時 |
 | `.claude/skills/generate-dashboard.md` | 提案ダッシュボード生成・更新 | 提案判定フロー開始時 |
 | `.claude/skills/sort-proposals.md` | ダッシュボード判定に基づく提案振り分け | ユーザー判定後 |

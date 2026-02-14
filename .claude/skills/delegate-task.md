@@ -68,7 +68,6 @@ PM が変更内容に応じたレビュアーを起動する:
 
 | 変更内容 | レビュアー |
 |---------|-----------|
-| リサーチ成果物（market-analysis, trend-report 等） | **Editor** |
 | 企画書（proposal.md 等） | **Editor** |
 | 運営変更（CLAUDE.md、ルール、スキル、ワークフロー） | **PM 自身** |
 
@@ -111,9 +110,9 @@ gh pr merge {PR番号} --merge
 
 | サイズ | Step 1（起動） | Step 2（レビュー） |
 |--------|---------------|-------------------|
-| **S** (1ファイル) | Researcher or Planner のみ | Editor レビュー |
-| **M** (2-5ファイル) | Researcher + Planner（並行可） | Editor レビュー |
-| **L** (6+ファイル) | Researcher → Planner（リサーチ後に企画） | Editor が全成果物をレビュー |
+| **S** (1ファイル) | Planner のみ | Editor レビュー |
+| **M** (2-5ファイル) | Planner のみ | Editor レビュー |
+| **L** (6+ファイル) | Planner のみ | Editor が全成果物をレビュー |
 
 ## 自動化されている部分
 
