@@ -57,8 +57,6 @@ trillion-game-lab/
 │   ├── rejected/       ← 不採用
 │   └── on-hold/        ← 保留
 ├── templates/          ← テンプレート
-├── reports/            ← プロジェクト管理
-│   └── projects.json
 └── README.md
 ```
 

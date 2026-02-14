@@ -12,7 +12,6 @@ proposals/
 ├── rejected/    ← 不採用
 └── on-hold/     ← 保留（追加調査待ち）
 templates/       ← 企画書テンプレート
-reports/         ← ダッシュボード・プロジェクト管理
 ```
 
 ## 操作元
