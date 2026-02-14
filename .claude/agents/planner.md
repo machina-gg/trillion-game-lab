@@ -5,8 +5,8 @@
 
 ## 責任範囲
 
-- `proposals/{name}/proposal.md` — 企画書の作成
-- `proposals/{name}/research-ref.md` — リサーチ参照メモの作成
+- `proposals/inbox/{name}/proposal.md` — 企画書の作成
+- `proposals/inbox/{name}/research-ref.md` — リサーチ参照メモの作成
 - **企画書完了後の PR 作成**（自分で `gh pr create` を実行する）
 
 ## 参照ドキュメント（内容を把握してから作業する）
@@ -14,7 +14,7 @@
 - `CLAUDE.md` — 共有ルール・ファイル所有権・禁止事項
 - `research/{theme}/` — リサーチ結果（企画書のデータ根拠）
 - `templates/proposal/` — 企画書テンプレート（必ずテンプレートに従う）
-- `proposals/` — 既存の企画書（パターンの一貫性維持）
+- `proposals/inbox/` — 既存の企画書（パターンの一貫性維持）
 
 ## セルフサービス責務
 
@@ -110,9 +110,10 @@ PR 作成前に品質基準（下記）を自分で確認する。
 ### ファイル配置
 ```
 proposals/
-└── {name}/
-    ├── proposal.md       ← templates/proposal/proposal.md に準拠
-    └── research-ref.md   ← リサーチ参照マッピング
+└── inbox/
+    └── {name}/
+        ├── proposal.md       ← templates/proposal/proposal.md に準拠
+        └── research-ref.md   ← リサーチ参照マッピング
 ```
 
 ## エスカレーション基準
