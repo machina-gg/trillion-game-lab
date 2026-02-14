@@ -1,0 +1,163 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [develop, main]
+  push:
+    branches: [develop, main]
+
+jobs:
+  markdown-lint:
+    name: Markdown Lint
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Markdown Lint
+        uses: DavidAnson/markdownlint-cli2-action@v19
+        with:
+          globs: |
+            research/**/*.md
+            proposals/**/*.md
+            templates/**/*.md
+
+  structure-check:
+    name: Structure Validation
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate research structure
+        run: |
+          # research/ 内の各テーマディレクトリに必要なファイルがあるか
+          FOUND_DIR=false
+          for dir in research/*/; do
+            [ -d "$dir" ] || continue
+            FOUND_DIR=true
+            theme=$(basename "$dir")
+            echo "Checking research/$theme/"
+            for required in market-analysis.md sources.md; do
+              if [ ! -f "$dir$required" ]; then
+                echo "::error::Missing $dir$required"
+                exit 1
+              fi
+            done
+            echo "  OK"
+          done
+
+          if [ "$FOUND_DIR" = false ]; then
+            echo "No research directories found, skipping"
+          fi
+
+      - name: Validate proposal structure
+        run: |
+          # proposals/ 内の各企画ディレクトリに proposal.md があるか
+          FOUND_DIR=false
+          for dir in proposals/*/; do
+            [ -d "$dir" ] || continue
+            FOUND_DIR=true
+            name=$(basename "$dir")
+            echo "Checking proposals/$name/"
+            if [ ! -f "${dir}proposal.md" ]; then
+              echo "::error::Missing ${dir}proposal.md"
+              exit 1
+            fi
+            echo "  OK"
+          done
+
+          if [ "$FOUND_DIR" = false ]; then
+            echo "No proposal directories found, skipping"
+          fi
+
+  ownership-check:
+    name: File Ownership Check
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request' && !contains(github.event.pull_request.labels.*.name, 'override:ownership')
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check file ownership
+        run: |
+          # PR の変更ファイル一覧を取得
+          BASE_SHA="${{ github.event.pull_request.base.sha }}"
+          HEAD_SHA="${{ github.event.pull_request.head.sha }}"
+          CHANGED_FILES=$(git diff --name-only "$BASE_SHA" "$HEAD_SHA")
+
+          echo "=== 変更ファイル一覧 ==="
+          echo "$CHANGED_FILES"
+          echo ""
+
+          # 所有権フラグ
+          HAS_RESEARCH=false
+          HAS_PROPOSALS=false
+          HAS_PM_FILES=false
+
+          for file in $CHANGED_FILES; do
+            case "$file" in
+              research/*)
+                HAS_RESEARCH=true
+                echo "  $file → Researcher"
+                ;;
+              proposals/*/proposal.md|proposals/*/research-ref.md)
+                HAS_PROPOSALS=true
+                echo "  $file → Planner"
+                ;;
+              proposals/*/review-notes.md)
+                echo "  $file → Editor"
+                ;;
+              CLAUDE.md|.claude/*|.github/*|reports/*)
+                HAS_PM_FILES=true
+                echo "  $file → PM"
+                ;;
+            esac
+          done
+
+          echo ""
+
+          # research/ と proposals/ が混在していないか
+          if [ "$HAS_RESEARCH" = true ] && [ "$HAS_PROPOSALS" = true ]; then
+            echo "::error::research/ と proposals/ が同一 PR に含まれています（所有者が異なるため分割してください）"
+            exit 1
+          fi
+
+          # PM ファイルとコンテンツファイルが混在していないか
+          if [ "$HAS_PM_FILES" = true ] && { [ "$HAS_RESEARCH" = true ] || [ "$HAS_PROPOSALS" = true ]; }; then
+            echo "::error::PM 管轄ファイルとコンテンツファイル（research/ / proposals/）が同一 PR に含まれています"
+            exit 1
+          fi
+
+          echo "=== 所有権チェック OK ==="
+
+  issue-link:
+    name: Issue Link Check
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+
+    steps:
+      - name: Check issue link
+        env:
+          PR_BODY: ${{ github.event.pull_request.body }}
+          PR_LABELS: ${{ join(github.event.pull_request.labels.*.name, ',') }}
+        run: |
+          # Closes #N, Fixes #N, Resolves #N のいずれかがあるか
+          if echo "$PR_BODY" | grep -qiE "(closes|fixes|resolves)\s+#[0-9]+"; then
+            echo "=== Issue 紐づけチェック OK ==="
+            exit 0
+          fi
+
+          # override:no-issue ラベルがあればスキップ
+          if echo "$PR_LABELS" | grep -q "override:no-issue"; then
+            echo "::notice::override:no-issue ラベルにより Issue 紐づけチェックをスキップ"
+            exit 0
+          fi
+
+          echo "::error::PR 本文に Issue 紐づけ（Closes #N）がありません。"
+          echo "PR 本文に 'Closes #N' を追加してください。"
+          echo "Issue がない場合は先に Issue を作成してください。"
+          echo "やむを得ない場合は PR に 'override:no-issue' ラベルを付けてください。"
+          exit 1

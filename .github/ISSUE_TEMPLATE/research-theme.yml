@@ -1,0 +1,43 @@
+name: リサーチテーマ提案
+description: 新しいリサーチテーマを提案する
+labels: ["research"]
+body:
+  - type: input
+    id: theme
+    attributes:
+      label: テーマ名
+      placeholder: "例: AI搭載の家計簿アプリ市場"
+    validations:
+      required: true
+
+  - type: textarea
+    id: background
+    attributes:
+      label: 背景・動機
+      description: なぜこのテーマをリサーチするのか
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: 調査スコープ
+      description: 調査する範囲（市場規模、競合、トレンド等）
+      value: |
+        - [ ] 市場規模（TAM/SAM/SOM）
+        - [ ] 競合分析（3社以上）
+        - [ ] トレンド分析
+        - [ ] ブルーオーシャン機会
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: 優先度
+      options:
+        - High
+        - Medium
+        - Low
+    validations:
+      required: true
