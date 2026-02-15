@@ -26,7 +26,7 @@
 - **マーケティング**: Product Hunt, Twitter/X, Indie Hackers
 - **コミュニケーション**: Discord, Reddit, Email
 
-これらのツール間を行き来し、それぞれのダッシュボードにログインし、データを手動で統合する作業に、1 日平均 1-2 時間を費やしている。（[出典](https://fungies.io/top-15-ai-tools-for-solo-developers-to-boost-productivity-in-2025/): 2026-02-16）
+これらのツール間を行き来し、それぞれのダッシュボードにログインし、データを手動で統合する作業に、**開発者の 75% が週に 6-15 時間（1 日平均 1-3 時間）を失っている**。（[出典](https://www.index.dev/blog/developer-productivity-statistics-with-ai-tools): 2026-02-16）
 
 ### 課題 2: データの分断による意思決定の遅れ
 
@@ -34,7 +34,7 @@
 
 ### 課題 3: マーケティング・運用タスクの見落とし
 
-開発に集中している間に、Product Hunt のローンチタイミングを逃したり、Stripe の支払いエラーに気づかなかったり、GitHub の Issue が放置されたりする。個人開発の場合、開発とマーケティングの時間配分は 1:1 が理想だが、実際には開発に偏りがち。（[出典](https://zenn.dev/uzuprg/articles/8b83ee58fc45bd): 2026-02-16）
+開発に集中している間に、Product Hunt のローンチタイミングを逃したり、Stripe の支払いエラーに気づかなかったり、GitHub の Issue が放置されたりする。インディー開発者の多くは**マーケティングの重要性を認識しているものの、開発に時間を取られて十分な時間を割けていない**という現状がある。（[出典](https://www.upwork.com/resources/freelancing-stats): 2026-02-16）
 
 ## ターゲットユーザー
 
@@ -52,7 +52,7 @@
 | **統合の深さ** | API 連携のみ | 個人開発者向けサービス（GitHub, Stripe, Product Hunt 等）の深い統合 |
 | **AI 分析** | なし（手動でワークフロー構築） | 収益・トラフィック・ユーザー行動の自動分析 + アクション提案 |
 | **学習コスト** | 高い（複雑なワークフロー構築が必要） | 低い（テンプレートと AI 提案） |
-| **価格** | $20-100/月（Zapier Premium: $29.99/月） | $15/月（個人開発者の予算に最適化） |
+| **価格** | $20-100/月（Zapier Professional: $29.99/月、年払いで $19.99/月） | $15/月（個人開発者の予算に最適化） |
 
 **既存ツールとの比較**:
 
@@ -94,16 +94,18 @@
 
 | 指標 | 値 | ソース | 取得日 |
 |------|-----|--------|--------|
-| TAM（個人開発者市場全体） | $11.14 billion（インディーゲーム市場）+ $1.18 trillion（IT フリーランス市場・日本のみ） | [Mordor Intelligence](https://www.mordorintelligence.com/industry-reports/indie-game-market), [エン・ジャパン](https://corp.en-japan.com/newsrelease/2025/42859.html) | 2026-02-16 |
-| SAM（ツール統合・生産性向上に関心のある個人開発者） | 推定 $500 million（TAM の 5%） | 推定 | 2026-02-16 |
-| SOM（当社がアプローチ可能な市場） | 推定 $50 million（SAM の 10%、英語圏の個人開発者） | 推定 | 2026-02-16 |
-| CAGR（個人開発者市場の成長率） | 14.32%（インディーゲーム市場 2026-2031） | [Mordor Intelligence](https://www.mordorintelligence.com/industry-reports/indie-game-market) | 2026-02-16 |
+| TAM（個人開発者・フリーランスエンジニア市場全体） | $8.5 trillion（オンラインフリーランス市場全体、2025）| [SkyQuest](https://www.skyquestt.com/report/online-freelance-market) | 2026-02-16 |
+| SAM（生産性ツール・ダッシュボード統合に関心のある個人開発者） | $16.54 billion（フリーランスプラットフォーム市場、2030 年予測）| [Mordor Intelligence](https://www.mordorintelligence.com/industry-reports/freelance-platforms-market) | 2026-02-16 |
+| SOM（当社がアプローチ可能な市場） | 推定 $500 million（SAM の約 3%、英語圏の個人開発者・インディーハッカー） | 推定 | 2026-02-16 |
+| CAGR（フリーランスプラットフォーム市場の成長率） | 16.66%（2025-2030） | [Mordor Intelligence](https://www.mordorintelligence.com/industry-reports/freelance-platforms-market) | 2026-02-16 |
 
 **補足データ**:
 
-- 世界の個人開発者数: 250,000 人（2023 年、フルタイム）（[出典](https://gitnux.org/indie-game-industry-statistics/): 2026-02-16）
-- 個人開発者の中央値年収: $50,000/年（[出典](https://gitnux.org/indie-game-industry-statistics/): 2026-02-16）
-- マイクロ SaaS 市場: $15.70 billion（2024）→ $59.60 billion（2030）、年 30% 成長（[出典](https://medium.com/startup-insider-edge/the-100k-mrr-illusion-5-micro-saas-founders-proving-its-possible-and-how-they-did-it-c3571dd336b3): 2026-02-16）
+- **グローバルフリーランサー基盤**: 全世界の労働者 33.8 億人のうち、15.7 億人（46.6%）がフリーランスとして活動（[出典](https://www.demandsage.com/freelance-statistics/): 2026-02-16）
+- **インディーゲーム開発者数**: 250,000 人（2023 年、フルタイム）（[出典](https://gitnux.org/indie-game-industry-statistics/): 2026-02-16）
+- **個人開発者の中央値年収**: $50,000/年（[出典](https://gitnux.org/indie-game-industry-statistics/): 2026-02-16）
+- **SaaS 市場**: $399.1 billion（2024）→ $819.2 billion（2030）、CAGR 12%（[出典](https://www.grandviewresearch.com/industry-analysis/saas-market-report): 2026-02-16）
+- **フリーランサーの収益**: 全世界で 2024 年に $1.5 trillion を創出（[出典](https://www.upwork.com/resources/freelancing-stats): 2026-02-16）
 
 ## 技術スタック（提案）
 
@@ -140,24 +142,26 @@
 
 ### 市場データ
 
+- [SkyQuest - Online Freelance Market](https://www.skyquestt.com/report/online-freelance-market) — 信頼度: ★★★ — 取得日: 2026-02-16
+- [Mordor Intelligence - Freelance Platforms Market](https://www.mordorintelligence.com/industry-reports/freelance-platforms-market) — 信頼度: ★★★ — 取得日: 2026-02-16
+- [Grand View Research - SaaS Market Report](https://www.grandviewresearch.com/industry-analysis/saas-market-report) — 信頼度: ★★★ — 取得日: 2026-02-16
+- [Upwork - Freelancing Statistics](https://www.upwork.com/resources/freelancing-stats) — 信頼度: ★★★ — 取得日: 2026-02-16
+- [DemandSage - Freelance Statistics](https://www.demandsage.com/freelance-statistics/) — 信頼度: ★★★ — 取得日: 2026-02-16
 - [Mordor Intelligence - Indie Game Market](https://www.mordorintelligence.com/industry-reports/indie-game-market) — 信頼度: ★★★ — 取得日: 2026-02-16
-- [SkyQuest - Indie Game Market Size 2032](https://www.skyquestt.com/report/indie-game-market) — 信頼度: ★★★ — 取得日: 2026-02-16
-- [エン・ジャパン - IT フリーランス市場調査](https://corp.en-japan.com/newsrelease/2025/42859.html) — 信頼度: ★★★ — 取得日: 2026-02-16
-- [Medium - Micro SaaS Growth](https://medium.com/startup-insider-edge/the-100k-mrr-illusion-5-micro-saas-founders-proving-its-possible-and-how-they-did-it-c3571dd336b3) — 信頼度: ★★ — 取得日: 2026-02-16
-- [Precedence Research - Low-Code Market](https://www.precedenceresearch.com/low-code-development-platform-market) — 信頼度: ★★★ — 取得日: 2026-02-16
+- [Gitnux - Indie Game Industry Statistics](https://gitnux.org/indie-game-industry-statistics/) — 信頼度: ★★★ — 取得日: 2026-02-16
 
 ### 競合分析
 
+- [Activepieces - Zapier Pricing Breakdown](https://www.activepieces.com/blog/zapier-pricing) — 信頼度: ★★★ — 取得日: 2026-02-16
 - [Gumroad Pricing 2025](https://medium.com/@RiseLogan/gumroad-in-2025-fees-features-and-better-alternatives-fef48cecb31d) — 信頼度: ★★ — 取得日: 2026-02-16
 - [Product Hunt Alternatives 2025](https://openhunts.com/blog/product-hunt-alternatives-2025) — 信頼度: ★★ — 取得日: 2026-02-16
 - [DataSag - Analytics Tools for Indie Hackers](https://www.datasag.com/blog/lightweight-analytics-tools-indie-hackers) — 信頼度: ★★ — 取得日: 2026-02-16
 
-### トレンド情報
+### トレンド・生産性データ
 
+- [Index.dev - Developer Productivity Statistics with AI Tools](https://www.index.dev/blog/developer-productivity-statistics-with-ai-tools) — 信頼度: ★★★ — 取得日: 2026-02-16
 - [Medium - AI Coding Trends 2025](https://medium.com/@amareswer/top-ai-coding-trends-developer-tools-to-watch-in-2025-72863117773c) — 信頼度: ★★ — 取得日: 2026-02-16
-- [Fungies - Top 15 AI Tools for Solo Developers](https://fungies.io/top-15-ai-tools-for-solo-developers-to-boost-productivity-in-2025/) — 信頼度: ★★ — 取得日: 2026-02-16
 - [Indie Hackers - AI Automation](https://www.indiehackers.com/post/how-indie-hackers-can-use-ai-automation-to-grow-smarter-not-harder-in-2025-5639ab4f1a) — 信頼度: ★★★ — 取得日: 2026-02-16
-- [Zenn - 個人開発の収益化ルーティン](https://zenn.dev/uzuprg/articles/8b83ee58fc45bd) — 信頼度: ★★ — 取得日: 2026-02-16
 
 ### ペインポイント調査
 
@@ -170,24 +174,26 @@
 ### 調査方法
 
 **WebSearch クエリ**:
+- "developer waste time inefficiency tool switching 2025 2026 statistics hours per day"
+- "indie developer marketing vs development time ratio recommendation 2025 2026"
+- "Zapier pricing plans Professional Premium 2025 2026"
+- "micro SaaS market size statistics 2024 2030 growth rate billion"
+- "individual developer freelance developer market size TAM SAM 2025 2026"
 - "indie developer market size 2025 2026 statistics"
 - "solo developer indie hacker revenue statistics 2025"
 - "indie developer tools 2025 trends AI automation"
 - "indie developer biggest challenges pain points 2025 survey"
 - "solo developer marketing launch struggle 2025"
 - "indie hacker analytics revenue tracking tools comparison"
-- "Gumroad indie developer pricing features 2025"
-- "indie dev community platform comparison Reddit Discord 2025"
-- "no-code low-code platform market size 2025 indie makers"
-- "technical debt solo developer maintenance burden automation"
-- "indie hacker sustainability burnout mental health 2025"
 - "個人開発者 市場規模 2025 統計"
 - "個人開発 収益化 ツール 2025"
-- "個人開発者 課題 マーケティング 集客 2025"
 
 **確認した公式サイト・レポート**:
-- Mordor Intelligence（市場調査レポート）
-- SkyQuest Technology（市場調査レポート）
-- エン・ジャパン（日本の IT フリーランス市場調査）
+- Mordor Intelligence（フリーランスプラットフォーム・インディーゲーム市場調査）
+- SkyQuest Technology（オンラインフリーランス市場調査）
+- Grand View Research（SaaS 市場調査）
+- Upwork（フリーランス統計）
+- DemandSage（フリーランス・ギグエコノミー統計）
+- Index.dev（開発者生産性統計）
+- Activepieces（Zapier 価格分析）
 - Indie Hackers（コミュニティディスカッション）
-- Zenn（日本の個人開発者向けプラットフォーム）
