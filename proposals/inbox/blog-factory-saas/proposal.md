@@ -22,7 +22,7 @@ blog-factory は、GitHub Actions + Claude API を組み合わせた「ブログ
 
 ### 課題 1: 技術的参入障壁
 
-blog-factory の現システムは GitHub Actions の設定・API キーの管理・シェルスクリプトの理解が必要で、エンジニア以外は利用できない。日本のブロガー（推計 450 万人のアクティブユーザー、2025 年推計）の大多数は非エンジニアであり、このシステムの恩恵を受けられていない。
+blog-factory の現システムは GitHub Actions の設定・API キーの管理・シェルスクリプトの理解が必要で、エンジニア以外は利用できない。日本のブロガー（推計約 600 万人のアクティブユーザー、[bonbankblog.com 調査](https://bonbankblog.com/bloger-population)）の大多数は非エンジニアであり、このシステムの恩恵を受けられていない。
 
 ### 課題 2: 複数ブログ管理の煩雑さ
 
@@ -41,8 +41,8 @@ Claude API の従量課金は、使い方によって費用が大きく変動す
 | セグメント | 特徴 | ペインポイント | 規模 |
 |-----------|------|-------------|------|
 | 副業アフィリエイター | 会社員・主婦。月 1〜10 万円の副収入目標 | 記事更新に時間がない。技術知識なし | 国内アフィリエイト市場に参加するのべ数百万人規模（市場規模 4,113 億円・2023 年度、矢野経済研究所） |
-| 個人ブロガー | ゲーム・趣味テーマ。ファン収益化目標 | 継続更新が困難。SEO 対策の知識不足 | 日本のアクティブブロガー推計約 450 万人の一部（2025 年推計） |
-| 中小企業マーケター | コンテンツマーケティング担当。1〜5 名チーム | ライター費用が高い。更新頻度が落ちる | SME のうち SaaS 未利用 66%（約 300 万社規模） |
+| 個人ブロガー | ゲーム・趣味テーマ。ファン収益化目標 | 継続更新が困難。SEO 対策の知識不足 | 日本のアクティブブロガー推計約 600 万人の一部（[bonbankblog.com](https://bonbankblog.com/bloger-population)） |
+| 中小企業マーケター | コンテンツマーケティング担当。1〜5 名チーム | ライター費用が高い。更新頻度が落ちる | 国内企業のクラウドサービス利用率 68.7%（令和3年版 総務省情報通信白書）。未利用企業が依然多数存在する |
 | メディア運営者 | 複数テーマサイトを運営するメディア事業者 | 複数ブログの一元管理が困難 | 推計数万人規模 |
 
 ## 差別化ポイント
@@ -133,10 +133,10 @@ BEP の考え方（Growth プラン単独）:
 | TAM（グローバル AI コンテンツ生成市場） | USD 148 億（2024 年） → USD 801 億（2030 年） | [Grand View Research](https://www.grandviewresearch.com/industry-analysis/generative-ai-content-creation-market-report) | 2026-02-22 |
 | TAM（AI コンテンツ作成市場・別推計） | USD 21.5 億（2024 年）→ USD 105.9 億（2033 年）、CAGR 19.4% | [Grand View Research](https://www.grandviewresearch.com/industry-analysis/ai-powered-content-creation-market-report) | 2026-02-22 |
 | SAM（日本 SaaS 市場） | 約 1.4 兆円（2023 年）→ 2 兆円超（2027 年予測） | [ミノリティワークス](https://minority.works/blog/generative-ai-btob-saas-market-chaos-map-guide-2025/) | 2026-02-22 |
-| SAM（日本 AI ライティングツール市場・推計） | 日本のアクティブブロガー約 450 万人 × 想定利用率 1% × ARPU 4,980 円 = 月約 2.24 億円 | 推定（ブロガー人口: [bonbankblog.com](https://bonbankblog.com/bloger-population)） | 2026-02-22 |
+| SAM（日本 AI ライティングツール市場・推計） | 日本のアクティブブロガー約 600 万人 × 想定利用率 1% × ARPU 4,980 円 = 月約 2.99 億円 | 推定（ブロガー人口: [bonbankblog.com](https://bonbankblog.com/bloger-population)） | 2026-02-22 |
 | SOM（初年度獲得目標） | 月 500 契約 × ARPU 4,980 円 = 月約 249 万円 | 推定 | 2026-02-22 |
 | CAGR（AI コンテンツ作成市場） | 19.4%〜32.5% | [Grand View Research](https://www.grandviewresearch.com/industry-analysis/ai-powered-content-creation-market-report) / [generative AI segment](https://www.grandviewresearch.com/industry-analysis/generative-ai-content-creation-market-report) | 2026-02-22 |
-| 日本のアクティブブロガー推計 | 約 450 万人（2025 年推計。閲覧中心を含む場合は 1,200 万人） | [bonbankblog.com](https://bonbankblog.com/bloger-population)（2025 年推計値） | 2026-02-22 |
+| 日本のアクティブブロガー推計 | 約 600 万人（閲覧中心を含む場合は 1,200 万人） | [bonbankblog.com](https://bonbankblog.com/bloger-population) | 2026-02-22 |
 | 国内アフィリエイト市場規模 | 4,113 億円（2023 年度）→ 4,382 億円見込み（2024 年度）、CAGR 約 7.2% | [矢野経済研究所](https://www.yano.co.jp/press-release/show/press_id/3746) | 2026-02-22 |
 
 ## 技術スタック（提案）
@@ -205,9 +205,10 @@ BEP の考え方（Growth プラン単独）:
 ### トレンド情報
 
 - [矢野経済研究所 — アフィリエイト市場に関する調査（2025年）](https://www.yano.co.jp/press-release/show/press_id/3746) — 信頼度: ★★★ — 取得日: 2026-02-22（2023 年度市場規模 4,113 億円・2028 年度予測 5,835 億円・CAGR 7.2% を引用）
-- [bonbankblog.com — 日本のブログ人口推計（2025 年版）](https://bonbankblog.com/bloger-population) — 信頼度: ★★ — 取得日: 2026-02-22（アクティブブロガー約 450 万人推計を引用）
+- [bonbankblog.com — 日本のブログ人口推計](https://bonbankblog.com/bloger-population) — 信頼度: ★★ — 取得日: 2026-02-22（アクティブブロガー約 600 万人、閲覧中心含む場合 1,200 万人のデータを引用）
 - [Anthropic — Claude API 公式料金ページ](https://platform.claude.com/docs/en/about-claude/pricing) — 信頼度: ★★★ — 取得日: 2026-02-22（Haiku 4.5: 入力 $1/MTok・出力 $5/MTok を引用）
 - [nihonium.io — Japan SaaS Market Trends 2025](https://nihonium.io/10-data-trends-shaping-japans-saas-market-in-2025/) — 信頼度: ★★ — 取得日: 2026-02-22
+- [総務省 — 令和3年版 情報通信白書「企業におけるクラウドサービスの利用動向」](https://www.soumu.go.jp/johotsusintokei/whitepaper/ja/r03/html/nd242140.html) — 信頼度: ★★★ — 取得日: 2026-02-22（クラウドサービス利用率 68.7%（全企業）の根拠として使用）
 
 ### 参考レポート
 
