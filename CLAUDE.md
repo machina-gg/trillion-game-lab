@@ -26,4 +26,4 @@ templates/       ← 企画書テンプレート
 ## ルール
 
 - Worktree 配置: `/Users/akihiroito/personalwork/git/trillion-game-lab-{issue-number}/`
-- Git Flow: develop → feature/* → PR → develop → main
+- Git Flow: main → feature/* → PR → main

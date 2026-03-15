@@ -61,8 +61,7 @@ trillion-game-lab/
 
 ## ブランチ戦略
 
-- `main` - 本番リリース用
-- `develop` - 開発統合ブランチ
+- `main` - デフォルトブランチ（開発統合・本番リリース兼用）
 - `feature/{issue-number}-{description}` - 機能開発
 - `hotfix/{issue-number}-{description}` - 緊急修正
 
