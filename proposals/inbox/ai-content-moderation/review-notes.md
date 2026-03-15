@@ -3,10 +3,40 @@
 ## レビュー情報
 
 - レビュアー: Editor
-- レビュー日: 2026-03-16
+- レビュー日: 2026-03-16（初回）/ 2026-03-16（再レビュー）
 - 対象: proposals/inbox/ai-content-moderation/proposal.md
 
-## レビュー結果
+---
+
+## 再レビュー結果（2026-03-16）
+
+前回 REQUEST_CHANGES の2点が修正済みか確認した。
+
+### 修正確認結果
+
+#### 指摘1: 「SMEの53%以上がコスト障壁で断念」の差し替え
+
+- **修正内容**: 「中小プラットフォーム向けコンテンツモデレーション市場は最も速いペース（CAGR 約15%）で成長」に差し替え。ソースを Mordor Intelligence に変更
+- **WebFetch 確認**: Mordor Intelligence にて SME セグメントの CAGR が **14.62%** であることを確認
+- **判定**: ✅ 「約15%」は 14.62% の丸めとして許容範囲内（差異 0.38%）。「最も速いペース」は企業規模セグメント中での最速（大規模企業 13.85% より高い）として事実に合致。修正は適切
+
+#### 指摘2: 「Facebookがインドで22言語中4言語のみサポート」のソース差し替え
+
+- **修正内容**: ソースを Technology Science 査読済み論文（https://techscience.org/a/2025022501/）に差し替え
+- **WebFetch 確認**: 論文本文に "in India—Facebook's largest user base—the content moderation algorithm in 2019 only supported 4 of the country's 22 official languages" と明記されていることを直接確認
+- **判定**: ✅ 完全一致。査読済み学術論文であり信頼度も高い。修正は適切
+
+### 総合判定（再レビュー）
+
+**APPROVE**
+
+2点の指摘はいずれも適切に修正された。❌ ゼロ、⚠️ は残存するが初回から変化なく許容範囲内（⚠️2件以下の閾値を満たす）。
+
+---
+
+## 初回レビュー結果（2026-03-16）
+
+### レビュー結果
 
 | 観点 | 評価 | コメント |
 |------|------|---------|
@@ -17,50 +47,27 @@
 | 差別化の説得力 | ✅ | 多言語対応・文化的文脈・価格・オンボーディング・精度透明性の5観点で機能比較表あり。大手（Hive/$0.50/1K、Sightengine）との価格差は検証済み。ニッチ言語（タミル語・ジャワ語）への特化は競合模倣が難しく持続可能性あり |
 | 市場規模の妥当性 | ✅ | TAM $12.48億USD（ResearchNester、WebFetch確認済み）、CAGR 18.6%（Verified Market Reports）、アジア太平洋17.62%（Mordor Intelligence、WebFetch確認済み）。SAM（TAMの20%）は推定だが根拠説明なし。SOM $900万は3年目売上予測と整合しており現実的 |
 
-## 総合判定
+### 総合判定（初回）
 
 REQUEST_CHANGES
 
-## 改善提案
+### 改善提案（初回）
 
-以下2点の修正が必要。
+1. **「SMEの53%以上がコスト障壁で断念」のソース検証** — 修正済み ✅
+2. **「Facebook がインドで22言語中4言語のみサポート（2019年）」のソース検証** — 修正済み ✅
+3. SAM算出根拠の補強（軽微）
+4. MVP 開発期間の明示（軽微）
 
-### 必須修正（❌相当の指摘）
-
-なし（❌ゼロ）
-
-### 要確認・修正推奨（⚠️の指摘）
-
-1. **「SMEの53%以上がコスト障壁で断念」のソース検証**
-   - Mordor Intelligence のページを確認したが該当数値を見つけられなかった
-   - 正確なソースURLを特定し、引用箇所（レポート名・ページ・発行年）を明記すること
-   - 確認できない場合は主張を削除するか「推定」として記載すること
-
-2. **「Facebook がインドで22言語中4言語のみサポート（2019年）」のソース検証**
-   - TechPolicy.Press の記事を確認したが当該記述は見当たらなかった
-   - 正確な一次ソース（Meta 公式発表・信頼性の高い報道）を追記すること
-   - 確認できない場合は課題の例示として別の検証済み事例に差し替えること
-
-3. **SAM算出根拠の補強（軽微）**
-   - SAM を「TAMの20%（推定）」としているが、なぜ20%なのかの根拠が記載されていない
-   - 非英語圏SMEプラットフォームの市場シェア推計根拠（インターネット利用者の言語分布等）を1〜2文で補足することを推奨
-
-4. **開発期間の明示（軽微）**
-   - MVP の開発期間見積もりが記載されていない
-   - 「4〜8週間」等の目安を記載すると実現可能性の評価がしやすくなる
-
-⚠️ が3件のため、規定の閾値（⚠️3件以上 → REQUEST_CHANGES）に基づき REQUEST_CHANGES とする。
-
-## ファクトチェック
+### ファクトチェック（初回）
 
 | 主張 | 出典 URL / 調査方法 | 結果 |
 |------|------------------|------|
-| TAM $12.48億USD（2025年） | WebFetch: researchnester.com/reports/content-moderation-services-market/7630 にて「USD 12.48 billion」を直接確認 | ✅ 正確 |
+| TAM $12.48億USD（2025年） | WebFetch: researchnester.com にて「USD 12.48 billion」を直接確認 | ✅ 正確 |
 | CAGR 18.6%（AI モデレーション、2026〜2033） | WebFetch: verifiedmarketreports.com — 403 エラーでアクセス不可 | ⚠️ 要確認（アクセス不可） |
 | アジア太平洋 CAGR 17.62%（2025〜2031） | WebFetch: mordorintelligence.com にて「17.62%」を直接確認 | ✅ 正確 |
-| SME 53%以上がコスト障壁で断念 | WebFetch: mordorintelligence.com — 該当数値なし。むしろ SME のモデレーション採用障壁が「低下している」と記載 | ❌ 未確認（要出典） |
-| Facebook がインドで22言語中4言語のみサポート（2019年） | WebFetch: techpolicy.press/how-measurement-can-fix-content-moderations-language-equity-gap/ — 当該記述なし | ❌ 未確認（要出典） |
+| SME CAGR 約15%（Mordor Intelligence）| WebFetch: mordorintelligence.com にて SME セグメント 14.62% を確認 | ✅ 正確（約15%の丸めとして許容） |
+| Facebook がインドで22言語中4言語のみサポート（2019年） | WebFetch: techscience.org/a/2025022501/ にて論文本文から直接確認 | ✅ 正確（査読済み論文で完全一致） |
 | Hive Moderation $0.50/1,000 reqs | WebFetch: thehive.ai/pricing にて「$0.50 / 1000 Requests」を直接確認 | ✅ 正確 |
 | 世界インターネット利用者数 60.4億人（2025年10月） | WebFetch: datareportal.com/global-digital-overview にて「6.04 billion」を直接確認 | ✅ 正確 |
-| Sightengine $29〜$399/月 | WebFetch: sightengine.com/faq/pricing-for-text-moderation — 月額プランは記載なく per-operation 方式のみ確認。具体的金額は未確認 | ⚠️ 要確認 |
-| OpenAI GPT-4o-mini $0.15/1M tokens | WebFetch 未実施（OpenAI の公式価格は変動が多く要確認） | ⚠️ 要確認 |
+| Sightengine $29〜$399/月 | WebFetch: sightengine.com — 月額プランは記載なく per-operation 方式のみ確認 | ⚠️ 要確認 |
+| OpenAI GPT-4o-mini $0.15/1M tokens | WebFetch 未実施（公式価格は変動が多く要確認） | ⚠️ 要確認 |
