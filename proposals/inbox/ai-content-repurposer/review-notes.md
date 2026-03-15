@@ -40,9 +40,9 @@ APPROVE
 
 | 主張 | 出典 URL / 調査方法 | 結果 |
 |------|------------------|------|
-| Castmagic 料金: $29/月（月払い）/ $21/月（年払い） | WebFetch: https://www.castmagic.io/pricing | ✅ 正確（Hobby プラン月払い $29、年払い $21 を確認） |
-| Lately.ai 料金: $14/月〜（年払い）/ $19/月〜（月払い） | WebFetch: https://www.lately.ai/pricing | ✅ 正確（Starter 年払い $14、月払い $19 を確認） |
-| 転換率5%: First Page Sage フリーミアム SaaS 平均 3.7%〜5.8% | WebFetch: https://firstpagesage.com/seo-blog/saas-freemium-conversion-rates/ | ✅ 正確（Traditional Freemium 平均 3.7%、RegTech 最高 5.8%。5% は現実的範囲内） |
+| Castmagic 料金: $29/月（月払い）/ $21/月（年払い） | WebFetch: [Castmagic Pricing](https://www.castmagic.io/pricing) | ✅ 正確（Hobby プラン月払い $29、年払い $21 を確認） |
+| Lately.ai 料金: $14/月〜（年払い）/ $19/月〜（月払い） | WebFetch: [Lately.ai Pricing](https://www.lately.ai/pricing) | ✅ 正確（Starter 年払い $14、月払い $19 を確認） |
+| 転換率5%: First Page Sage フリーミアム SaaS 平均 3.7%〜5.8% | WebFetch: [First Page Sage](https://firstpagesage.com/seo-blog/saas-freemium-conversion-rates/) | ✅ 正確（Traditional Freemium 平均 3.7%、RegTech 最高 5.8%。5% は現実的範囲内） |
 | SAM 3社収束: $2.14B（2024）→ $2.75B（2025） | DataMint Intelligence・Roots Analysis・Intel Market Research の3社 | ✅ 3社データが収束しており裏付けとして妥当 |
 | TAM $14.84B（2024）→ $80.12B（2030）CAGR 32.5% | Grand View Research 公式（前回確認済み） | ✅ 正確（前回確認から変更なし） |
-| GPT-4o-mini は GPT-4 比 15 倍安い | OpenAI 公式 API 価格比較（前回確認済み） | ✅ 正確（概算）
+| GPT-4o-mini は GPT-4 比 15 倍安い | OpenAI 公式 API 価格比較（前回確認済み） | ✅ 正確（概算） |
