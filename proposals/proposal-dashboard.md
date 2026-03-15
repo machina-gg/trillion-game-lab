@@ -171,3 +171,17 @@
 - [ ] on-hold
 
 ---
+
+## wcag-guardian
+
+- **概要**: 訴訟リスクを抱える中小事業者向けに、コードレベルの WCAG 自動修正と法的証拠書類の自動生成を組み合わせた月額 $29〜の SaaS
+- **市場規模**: TAM $0.79B（2025 年）→ $1.15B（2031 年）
+- **詳細**: [企画書](inbox/wcag-guardian/proposal.md)
+
+判定:
+
+- [ ] adopted
+- [ ] rejected
+- [ ] on-hold
+
+---
