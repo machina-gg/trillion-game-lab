@@ -22,13 +22,13 @@
 
 #### 指摘2: 「Facebookがインドで22言語中4言語のみサポート」のソース差し替え
 
-- **修正内容**: ソースを Technology Science 査読済み論文（https://techscience.org/a/2025022501/）に差し替え
+- **修正内容**: ソースを Technology Science 査読済み論文（[Technology Science](https://techscience.org/a/2025022501/)）に差し替え
 - **WebFetch 確認**: 論文本文に "in India—Facebook's largest user base—the content moderation algorithm in 2019 only supported 4 of the country's 22 official languages" と明記されていることを直接確認
 - **判定**: ✅ 完全一致。査読済み学術論文であり信頼度も高い。修正は適切
 
 ### 総合判定（再レビュー）
 
-**APPROVE**
+APPROVE
 
 2点の指摘はいずれも適切に修正された。❌ ゼロ、⚠️ は残存するが初回から変化なく許容範囲内（⚠️2件以下の閾値を満たす）。
 
