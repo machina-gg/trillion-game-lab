@@ -43,6 +43,7 @@ AI チャットボットは24時間365日対応可能で、ユーザーの感情
 | **コンテンツ量** | 150種類のエクササイズ（Wysa） | 200種類以上のエクササイズ + 毎週新規コンテンツ追加 |
 
 **主な差別化要素:**
+
 - **予測的ケア**: AI がユーザーの感情パターンを分析し、悪化の兆候を事前に検知してアラートを送信
 - **ハイブリッドモデル**: AI サポートと人間セラピストを組み合わせ、重度のケースには専門家へエスカレーション
 - **手頃な価格**: 従来のセラピーの1/4-1/10のコストで継続的なサポートを提供
@@ -69,21 +70,25 @@ AI チャットボットは24時間365日対応可能で、ユーザーの感情
 ## ビジネスモデル
 
 **収益モデル:**
+
 - **ベーシックプラン**: $29/月 — AIチャットボット、感情トラッキング、セルフケアライブラリ、予測アラート
 - **プレミアムプラン**: $79/月 — ベーシック機能 + 月2回の人間セラピストセッション + ウェアラブル統合
 - **年間プラン**: $299/年（ベーシック）、$799/年（プレミアム）— 月額換算で約15%割引
 - **企業向けプラン**: $15/ユーザー/月（50名以上）— 従業員のメンタルヘルス福利厚生として提供
 
 **収益予測:**
+
 - Year 1: 10,000ユーザー（80%ベーシック、20%プレミアム）→ 年間収益 $4.7M
 - Year 2: 50,000ユーザー → 年間収益 $23.5M
 - Year 3: 150,000ユーザー → 年間収益 $70.5M
 
 **LTV（顧客生涯価値）:**
+
 - ベーシックプラン: $348（平均継続期間12ヶ月）
 - プレミアムプラン: $948（平均継続期間12ヶ月）
 
 **CAC（顧客獲得コスト）:**
+
 - ターゲット: $50-70/ユーザー（オーガニック検索、SNS広告、コンテンツマーケティング）
 
 ## 市場規模
@@ -96,6 +101,7 @@ AI チャットボットは24時間365日対応可能で、ユーザーの感情
 | CAGR | 19.23% | [Fortune Business Insights](https://www.fortunebusinessinsights.com/mental-health-apps-market-109012) | 2026-02-16 |
 
 **追加データ:**
+
 - マインドフルネス・瞑想アプリ市場は2024年の$1.2Bから2033年に$3.2Bへ成長（CAGR 14.5%）（[Yahoo Finance](https://finance.yahoo.com/news/mindfulness-meditation-apps-market-set-153400976.html)、2026-02-16取得）
 - Wysa は500万人以上のユーザーを90カ国以上で獲得（[My Flourish AI](https://www.myflourish.ai/post/top-ai-mental-health-apps-2026)、2026-02-16取得）
 - Calm の年間収益は$300M（2023年）（[Business of Apps](https://www.businessofapps.com/data/calm-statistics/)、2026-02-16取得）
@@ -112,6 +118,7 @@ AI チャットボットは24時間365日対応可能で、ユーザーの感情
 - **コンプライアンス**: HIPAA準拠のデータ暗号化、匿名化処理
 
 **月額コスト見積もり（1万ユーザー想定）:**
+
 - Vercel Pro: $20
 - Railway: $50（データベース + API）
 - OpenAI API: $100（会話型AIコスト）
@@ -153,11 +160,13 @@ AI チャットボットは24時間365日対応可能で、ユーザーの感情
 ### 調査方法
 
 **WebSearch クエリ:**
+
 - "mental health apps market size 2026 CAGR meditation mindfulness"
 - "AI therapy chatbot mental health apps competitors comparison 2026"
 - "consumer app trends 2026 healthcare education lifestyle"
 
 **WebFetch 確認:**
+
 - Fortune Business Insights の市場レポートで詳細なセグメント分析を確認
 - Business of Apps でCalm、Headspace、Wysaの収益・ユーザー数データを取得
 - Talkspace の公式ブログで最新のAIセラピーアプリ動向を確認
