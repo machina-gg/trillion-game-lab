@@ -45,7 +45,7 @@ WCAG Guardian は以下の 3 点でこの市場の空白を埋める:
 ## ターゲットユーザー
 
 | セグメント | 特徴 | ペインポイント | 規模 |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | 中小 EC サイト | 商品数 100〜5,000 点、月間訪問者 1 万〜10 万 | 訴訟リスク認知はあるが対応コスト・工数がない | 米国内 約 100 万サイト |
 | 専門サービス業（弁護士・クリニック・会計士） | CMS（WordPress/Wix）使用、IT スタッフなし | ADA 訴訟の標的になりやすい業種 | 米国内 約 50 万事業者 |
 | 飲食・ホテル | 予約・メニューページが主要ページ | 2025 年から訴訟急増（フロリダ +84%） | 米国内 約 30 万事業者 |
@@ -53,7 +53,7 @@ WCAG Guardian は以下の 3 点でこの市場の空白を埋める:
 ## 差別化ポイント
 
 | 観点 | accessiBe / UserWay（ウィジェット系） | WCAG Guardian |
-|---|---|---|
+| --- | --- | --- |
 | 修正方式 | JS ウィジェット追加（HTML は未修正） | 実際の HTML/CSS パッチを生成 |
 | 法的証拠力 | ウィジェット＝訴訟対策にならないと判例あり | 修正ログ・適合証明書を自動生成 |
 | 価格 | $490/年〜（accessiBe）、$49/月〜（UserWay） | $29/月〜（年換算 $348〜） |
@@ -81,7 +81,7 @@ WCAG Guardian は以下の 3 点でこの市場の空白を埋める:
 ### 価格プラン
 
 | プラン | 価格 | 対象 | 主要機能 |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | Starter | $29/月 | 個人・5 ページ以下 | スキャン + レポート + 証明書 |
 | Growth | $59/月 | SMB・50 ページ以下 | + 自動修正パッチ + 週次監視 |
 | Pro | $99/月 | 中規模・500 ページ以下 | + 優先サポート + API アクセス |
@@ -96,7 +96,7 @@ WCAG Guardian は以下の 3 点でこの市場の空白を埋める:
 ### 月額運用コスト（$250 以内）
 
 | 項目 | 月額コスト |
-|---|---|
+| --- | --- |
 | Vercel（Next.js ホスティング） | $20 |
 | Supabase（DB + Auth） | $25 |
 | axe-core スキャン実行（AWS Lambda） | $30 |
@@ -108,11 +108,11 @@ WCAG Guardian は以下の 3 点でこの市場の空白を埋める:
 ## 市場規模
 
 | 指標 | 値 | ソース | 取得日 |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | TAM（デジタルアクセシビリティソフトウェア市場全体） | $0.79B（2025）→ $1.15B（2031） | [Mordor Intelligence](https://www.mordorintelligence.com/industry-reports/digital-accessibility-software-market) | 2026-03-16 |
 | CAGR | 6.23%（2026〜2031） | [Mordor Intelligence](https://www.mordorintelligence.com/industry-reports/digital-accessibility-software-market) | 2026-03-16 |
 | SAM（SMB 向けウェブアクセシビリティ、北米） | 約 $315M（TAM × 北米 39.87% × SMB 推定 17%）※SMB 17% は、accessiBe・UserWay 等の主要ウィジェット系プレイヤーが SMB 市場に注力する旨の各社公式情報と、overlay 系ソリューションが TAM 全体の約 8〜12% を占めるとの市場調査（[TestParty, 2025](https://testparty.ai/blog/digital-accessibility-software-market)）を参考に推計した値（独立した SMB シェア調査は未発見のため、数値は暫定） | [Mordor Intelligence](https://www.mordorintelligence.com/industry-reports/digital-accessibility-software-market) | 2026-03-16 |
-| SOM（3 年目、SMB 市場の 0.5% 獲得） | 約 $1.6M ARR | 推定（1,600 社 × $85/月 × 12）| 2026-03-16 |
+| SOM（3 年目、SMB 市場の 0.5% 獲得） | 約 $1.6M ARR | 推定（1,600 社 × $85/月 × 12） | 2026-03-16 |
 | 年間 ADA 訴訟件数（2024） | 4,187 件 | [UsableNet 2024 Lawsuit Report](https://blog.usablenet.com/2024-digital-accessibility-lawsuit-report-relased-insights-for-2025) | 2026-03-16 |
 | 2025 上半期 ADA 訴訟件数 | 2,014 件（前年比 +37%） | [EcomBack 2025 Mid-Year Report](https://www.ecomback.com/ada-website-lawsuits-recap-report/2025-mid-year-ada-website-lawsuit-report) | 2026-03-16 |
 | 訴訟対象の SMB 割合 | 77%（売上 $25M 以下） | [AudioEye 2025 Report](https://www.audioeye.com/post/website-accessibility-in-2025/) | 2026-03-16 |
@@ -136,7 +136,7 @@ WCAG Guardian は以下の 3 点でこの市場の空白を埋める:
 ## リスクと対策
 
 | リスク | 影響度 | 対策 |
-|---|---|---|
+| --- | --- | --- |
 | axe-core の誤検知・見落とし | 高 | 「自動修正は補助」と明示。法的免責事項を利用規約に記載。人的レビューを推奨 |
 | 競合（accessiBe 等）が価格引き下げ | 中 | コードレベル修正と法的証拠書類という機能差別化を維持。価格競争に巻き込まれない |
 | ADA 訴訟リスクのトレンド変化（規制緩和） | 中 | EAA（欧州）・Section 508 など多フレームワーク対応でリスク分散 |
