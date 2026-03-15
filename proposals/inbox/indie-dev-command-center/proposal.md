@@ -174,6 +174,7 @@
 ### 調査方法
 
 **WebSearch クエリ**:
+
 - "developer waste time inefficiency tool switching 2025 2026 statistics hours per day"
 - "indie developer marketing vs development time ratio recommendation 2025 2026"
 - "Zapier pricing plans Professional Premium 2025 2026"
@@ -189,6 +190,7 @@
 - "個人開発 収益化 ツール 2025"
 
 **確認した公式サイト・レポート**:
+
 - Mordor Intelligence（フリーランスプラットフォーム・インディーゲーム市場調査）
 - SkyQuest Technology（オンラインフリーランス市場調査）
 - Grand View Research（SaaS 市場調査）
